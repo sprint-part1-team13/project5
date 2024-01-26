@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Advice generator app</title>
+    <style>
+      /* 간단해서 따로 파일 안 뺌. */
+      * {
+        margin: initial;
+        padding: initial;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #202733;
+        color: #cee3e9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      #generator {
+        width: 540px;
+        background-color: #313a48;
+        padding: 48px;
+        text-align: center;
+        border-radius: 15px;
+        position: relative;
+      }
+
+      .advice {
+        font-size: 28px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+        padding: 30px 0;
+      }
+
+      .generator-title {
+        color: #53ffaa;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 800;
+        letter-spacing: 4.086px;
+      }
+
+      .dice {
+        position: absolute;
+        background-color: #53ffaa;
+        display: inline-block;
+        padding: 20px;
+        border-radius: 9999px;
+        cursor: pointer;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+      }
+
+      .dice:hover {
+        box-shadow: 0px 0px 40px 0px #53ffaa;
+      }
+
+      .dice img {
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="generator">
+      <div class="generator-title">
+        Advice #<span class="adviceNum">117</span>
+      </div>
+      <div class="advice">
+        "It is easy to sit up and take notice, what's difficult is getting up
+        and taking action."
+      </div>
+      <img src="./images/pattern-divider-desktop.svg" alt="patter divider" />
+      <div class="dice">
+        <img src="./images/icon-dice.svg" alt="dice" />
+      </div>
+    </main>
+    <script>
+      // 귀찮아서 따로 안 뺐습니다.
+      const diceBtn = document.querySelector(".dice");
+      const adviceNum = document.querySelector(".adviceNum");
+      const advice = document.querySelector(".advice");
+
+      async function getAdvice() {
+        const res = await fetch("https://api.adviceslip.com/advice");
+        const result = await res.json();
+        adviceNum.textContent = result.slip.id;
+        advice.textContent = result.slip.advice;
+      }
+
+      diceBtn.addEventListener("click", getAdvice);
+    </script>
+  </body>
+</html>
