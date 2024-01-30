@@ -86,3 +86,24 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+@media (max-width: 576px) {
+  body {
+    padding: 0 16px;
+  }
+
+  .box {
+    padding: 0 24px;
+  }
+
+  .box h1 {
+    margin-top: 40px;
+  }
+
+  .divider {
+    content: url(./images/pattern-divider-mobile.svg);
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
