@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
   
   <title>Frontend Mentor | Advice generator app</title>
 
@@ -15,14 +17,21 @@
   </style>
 </head>
 <body>
-
-  Advice #<!-- Advice ID goes here -->
-
-  "<!-- Advice text goes here -->"
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <div class="box">
+    <!-- <div id="loding">
+      <div id="spinner"></div>
+    </div> -->
+    <div id="text">
+      <h1>Advice #<span id="adviceNumber">117</span></h1>
+      <div class="advice" id="advice">
+        "It is easy to sit up and take notice, what's difficult is getting up and taking action."
+      </div>
+    </div>
+    <img id="divider" src="./images/pattern-divider-desktop.svg" alt="divider">
   </div>
+  <div id="diceBox">
+  <img id="dice" src="./images/icon-dice.svg" alt="dice">
+  </div>
+  <script src="./js/index.js" type="module"></script>
 </body>
 </html>
